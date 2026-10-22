@@ -1,0 +1,207 @@
+{
+  "provenance": {
+    "repository": "https://github.com/CristoferSilva/mtsa-tutorial-compet",
+    "commit": "a5959467eca45f930341783a7006affcae5e6e88",
+    "data_sha256": "0f15ee78a462bc9d27e55cf2d8663dcedd3592d25c9d9a7d1e17b5e1e28291c8",
+    "note": "Dados tabulares sintéticos fornecidos pelo tutorial. Não são medições da Moura."
+  },
+  "settings": {
+    "seeds": [
+      11,
+      22,
+      33,
+      42,
+      55
+    ],
+    "epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "window_size": 1,
+    "train_rows": 2500,
+    "threshold_quantile": 0.99,
+    "saved_seed": 42,
+    "torch_threads": 2,
+    "threshold_rule": "percentil 99 dos escores normais de validação",
+    "validation_rows": 500,
+    "test_rows": 2000,
+    "test_normals": 1174,
+    "test_anomalies": 826,
+    "architecture": "6 -> 64 -> 64 -> 8 -> 64 -> 64 -> 6; ReLU; saída linear",
+    "device": "cpu",
+    "dataset": "sintético do tutorial; desvios constantes injetados",
+    "selection": "Sem busca de hiperparâmetros e sem escolha de seed pelo teste."
+  },
+  "bug_evidence": {
+    "original_first_interval": [
+      200,
+      13
+    ],
+    "corrected_first_interval": [
+      200,
+      213
+    ],
+    "original_positive_rows_200_213": 0,
+    "corrected_positive_rows_200_213": 13,
+    "original_other_first_interval": [
+      150,
+      200
+    ],
+    "corrected_other_first_interval": [
+      150,
+      350
+    ],
+    "sine_is_constant": true,
+    "note": "magnitude * sin(pi/4) é constante: deslocamento, não senoide temporal."
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.5.1+cpu",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1"
+  },
+  "runs": [
+    {
+      "model": "Hitachi",
+      "seed": 11,
+      "roc_auc": 1.0,
+      "average_precision": 1.0,
+      "f1": 0.9921921921921922,
+      "precision": 0.9845053635280095,
+      "recall": 1.0,
+      "far": 0.011073253833049404,
+      "mar": 0.0,
+      "tn": 1161,
+      "fp": 13,
+      "fn": 0,
+      "tp": 826,
+      "threshold": 0.013752903956919905,
+      "train_seconds": 4.449464699999226,
+      "train_final_loss": 0.0015603856300003827
+    },
+    {
+      "model": "Hitachi",
+      "seed": 22,
+      "roc_auc": 1.0,
+      "average_precision": 1.0,
+      "f1": 0.9957805907172996,
+      "precision": 0.9915966386554622,
+      "recall": 1.0,
+      "far": 0.00596252129471891,
+      "mar": 0.0,
+      "tn": 1167,
+      "fp": 7,
+      "fn": 0,
+      "tp": 826,
+      "threshold": 0.007812423603609203,
+      "train_seconds": 4.670316799998545,
+      "train_final_loss": 0.0012484254184528254
+    },
+    {
+      "model": "Hitachi",
+      "seed": 33,
+      "roc_auc": 0.9999845316811794,
+      "average_precision": 0.9999778532799275,
+      "f1": 0.9933854479855683,
+      "precision": 0.986857825567503,
+      "recall": 1.0,
+      "far": 0.009369676320272573,
+      "mar": 0.0,
+      "tn": 1163,
+      "fp": 11,
+      "fn": 0,
+      "tp": 826,
+      "threshold": 0.021115212477743624,
+      "train_seconds": 4.504391100002977,
+      "train_final_loss": 0.0025613594887545334
+    },
+    {
+      "model": "Hitachi",
+      "seed": 42,
+      "roc_auc": 0.9999938126724718,
+      "average_precision": 0.9999911898681818,
+      "f1": 0.9892215568862276,
+      "precision": 0.9786729857819905,
+      "recall": 1.0,
+      "far": 0.015332197614991482,
+      "mar": 0.0,
+      "tn": 1156,
+      "fp": 18,
+      "fn": 0,
+      "tp": 826,
+      "threshold": 0.014612371176481244,
+      "train_seconds": 4.862493799999356,
+      "train_final_loss": 0.0017049041896825656
+    },
+    {
+      "model": "Hitachi",
+      "seed": 55,
+      "roc_auc": 1.0,
+      "average_precision": 1.0,
+      "f1": 0.9957805907172996,
+      "precision": 0.9915966386554622,
+      "recall": 1.0,
+      "far": 0.00596252129471891,
+      "mar": 0.0,
+      "tn": 1167,
+      "fp": 7,
+      "fn": 0,
+      "tp": 826,
+      "threshold": 0.006967199873179197,
+      "train_seconds": 4.356072099999437,
+      "train_final_loss": 0.0011648696789052337
+    }
+  ],
+  "summary": {
+    "roc_auc": {
+      "mean": 0.9999956688707303,
+      "sd": 6.777877715777728e-06
+    },
+    "average_precision": {
+      "mean": 0.9999938086296218,
+      "sd": 9.70090584465215e-06
+    },
+    "f1": {
+      "mean": 0.9932720756997174,
+      "sd": 0.0027464067210780127
+    },
+    "precision": {
+      "mean": 0.9866458904376854,
+      "sd": 0.005413266029642821
+    },
+    "recall": {
+      "mean": 1.0,
+      "sd": 0.0
+    },
+    "far": {
+      "mean": 0.009540034071550255,
+      "sd": 0.003921929960211699
+    },
+    "mar": {
+      "mean": 0.0,
+      "sd": 0.0
+    }
+  },
+  "baseline": {
+    "model": "Distância ao normal",
+    "roc_auc": 1.0,
+    "average_precision": 1.0,
+    "f1": 0.991001799640072,
+    "precision": 0.9821640903686087,
+    "recall": 1.0,
+    "far": 0.012776831345826235,
+    "mar": 0.0,
+    "tn": 1159,
+    "fp": 15,
+    "fn": 0,
+    "tp": 826,
+    "threshold": 2.8846280574798584
+  },
+  "limitations": [
+    "Um único arquivo sintético e uma divisão temporal fixa.",
+    "Anomalias adicionadas têm amplitudes muito maiores que a variação normal.",
+    "Desvio entre seeds mede apenas inicialização/ordem de treino, não novos conjuntos.",
+    "Não demonstra desempenho em dados reais nem superioridade sobre GANF.",
+    "Hitachi já existia no tutorial; contribuição é a integração completa e a avaliação.",
+    "Com seis entradas, a camada de oito unidades não comprime: adapta-se a arquitetura existente."
+  ]
+}
